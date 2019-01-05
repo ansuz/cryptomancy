@@ -3,6 +3,8 @@ var assert = require('assert'),
     source = mancy.source,
     methods = mancy.methods;
 
+console.log("Testing API uniformity of methods and entropy sources");
+
 ['insecure', 'secure', 'deterministic']
 .forEach(function (mode) {
     f = source[mode](5);

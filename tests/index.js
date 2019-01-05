@@ -1,1 +1,2 @@
-require('./source')
+require('./source');
+require('./sort');
