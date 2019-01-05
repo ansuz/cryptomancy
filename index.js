@@ -1,4 +1,4 @@
-var Cryptomancy = module.exports;
+var Cryptomancy = mancy = module.exports;
 
 var Util = Cryptomancy.util = require("cryptomancy-util");
 Cryptomancy.source = require("cryptomancy-source");
@@ -103,30 +103,37 @@ An interactive protocol through which equal participants fairly order themselves
     hash(id, sorted_id_list)
     lowest hash wins */
 protocol.fair_sort = function (orig_id64_list) {
-    var map = {};
+    var map = {}; // keep a map of Uint8Arrays by base64 keys
 
+    // make a copy of the supplied inputs to avoid mutation
     var id64_list = Util.slice(orig_id64_list);
 
-    id64_list.forEach(function (id) {
-        map[id] = Format.decode64(id);
+    // assign values to the map and also produce a list of Uint8 Arrays
+    idU8_list = id64_list.map(function (id64) {
+        return (map[id64] = Format.decode64(id64));
     });
 
-    // sort the list of ids
-    id64_list.sort(function (id_A, id_B) {
-        return Util.lower_hash(map[id_A], map[id_B]);
+    // take the xor sum of all the Uint8Arrays
+    // this value is universally unpredictable with even one honest node
+    var xor_sum = mancy.util.reduce(idU8_list, function (A, B) {
+        // xor every element of A and B together, and return B
+        if (!A || !B) { throw new Error("Expected inputs"); }
+        if (A.length !== B.length) { throw new Error("Expected inputs to have equal length"); }
+
+        return new Uint8Array(mancy.util.map(A, function (a, i) {
+            return mancy.util.xor(a, B[i]);
+        }));
     });
 
-    var sorted_u8s = id64_list.map(function (id) {
-        return map[id];
-    });
-
+    // hash the concatenation of each user's id with the xor sum
     var hashes = {};
     id64_list.forEach(function (id) {
         // [your_id].concat(sorted_list)
         var this_id = map[id];
-        hashes[id] = Hash(Util.concat([this_id].concat(sorted_u8s)));
+        hashes[id] = Hash(Util.concat([this_id].concat(xor_sum)));
     });
 
+    // sort according to lowest hash
     return id64_list.sort(function (id_a, id_b) {
         return Util.lower_hash(hashes[id_a], hashes[id_b]);
     });
