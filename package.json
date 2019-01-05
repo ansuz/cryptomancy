@@ -4,7 +4,7 @@
   "description": "cryptographic gaming toolkit",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node tests/index.js"
   },
   "keywords": [
     "crypto"
@@ -16,7 +16,7 @@
     "cryptomancy-methods": "^1.0.1",
     "cryptomancy-nonce": "^1.0.0",
     "cryptomancy-prime": "^1.0.0",
-    "cryptomancy-source": "^1.0.0",
+    "cryptomancy-source": "^1.0.1",
     "cryptomancy-util": "^1.0.0",
     "shamir3pass": "^2.0.0",
     "tweetnacl": "^1.0.0"
