@@ -19,6 +19,24 @@ Cryptomancy.commit.reveal = function (nonce, value, commit) {
     return Cryptomancy.format.encode64(commit) === Cryptomancy.format.encode64(Cryptomancy.commit(nonce, value));
 };
 
+var keys = Cryptomancy.keys = {};
+
+keys.signing = function (seed) {
+    // TODO check that the seed is valid
+    // according to length
+    // according to type
+    return nacl.sign.keyPair.fromSeed(seed);
+};
+
+keys.symmetric = function (seed) {
+    // TODO check that the seed is valid
+    // according to type
+    // according to length (nacl.secretbox.keyLength)
+    // FIXME return a nice function that does everything you want.
+    // OR an object with encrypt/decrypt
+    //return nacl.secretbox
+};
+
 var protocol = Cryptomancy.protocol = {};
 
 
