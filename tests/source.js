@@ -1,3 +1,4 @@
+require("cryptomancy-source/test");
 var assert = require('assert'),
     mancy = require('..'),
     source = mancy.source,
