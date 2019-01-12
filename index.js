@@ -7,6 +7,7 @@ var Format = Cryptomancy.format = require("cryptomancy-format");
 Cryptomancy.prime = require("cryptomancy-prime");
 Cryptomancy.shamir3pass = require("shamir3pass");
 Cryptomancy.nonce = require("cryptomancy-nonce");
+Cryptomancy.accumulator = require("cryptomancy-accumulator");
 
 var nacl = require("tweetnacl");
 var Hash = Cryptomancy.hash = nacl.hash;

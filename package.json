@@ -18,6 +18,7 @@
     "cryptomancy-prime": "^1.0.0",
     "cryptomancy-source": "^1.0.1",
     "cryptomancy-util": "^1.0.0",
+    "cryptomancy-accumulator": "^1.0.0",
     "shamir3pass": "^2.0.0",
     "tweetnacl": "^1.0.0"
   }
