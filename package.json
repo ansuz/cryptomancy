@@ -1,6 +1,6 @@
 {
   "name": "cryptomancy",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "cryptographic gaming toolkit",
   "main": "index.js",
   "scripts": {
@@ -12,14 +12,14 @@
   "author": "ansuz",
   "license": "MIT",
   "dependencies": {
-    "cryptomancy-format": "^1.0.0",
-    "cryptomancy-methods": "^1.0.1",
-    "cryptomancy-nonce": "^1.0.0",
-    "cryptomancy-prime": "^1.0.0",
-    "cryptomancy-source": "^1.0.1",
-    "cryptomancy-util": "^1.0.0",
-    "cryptomancy-accumulator": "^1.0.0",
-    "shamir3pass": "^2.0.0",
+    "cryptomancy-accumulator": "^1.0.1",
+    "cryptomancy-format": "^1.0.1",
+    "cryptomancy-methods": "^1.0.2",
+    "cryptomancy-nonce": "^1.0.3",
+    "cryptomancy-prime": "^1.0.1",
+    "cryptomancy-source": "^1.0.2",
+    "cryptomancy-util": "^1.0.1",
+    "shamir3pass": "^2.0.1",
     "tweetnacl": "^1.0.0"
   }
 }
