@@ -19,7 +19,12 @@
     "cryptomancy-prime": "^1.0.1",
     "cryptomancy-source": "^1.0.2",
     "cryptomancy-util": "^1.0.1",
+    "cryptomancy-secret": "^1.0.1",
     "shamir3pass": "^2.0.1",
     "tweetnacl": "^1.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ansuz/cryptomancy.git"
   }
 }

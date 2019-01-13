@@ -8,6 +8,7 @@ Cryptomancy.prime = require("cryptomancy-prime");
 Cryptomancy.shamir3pass = require("shamir3pass");
 Cryptomancy.nonce = require("cryptomancy-nonce");
 Cryptomancy.accumulator = require("cryptomancy-accumulator");
+var Secret = require("cryptomancy-secret");
 
 var nacl = require("tweetnacl");
 var Hash = Cryptomancy.hash = nacl.hash;
